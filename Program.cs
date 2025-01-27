@@ -27,8 +27,14 @@ do
     if (player == 'X')
     {
         Console.WriteLine($"{player1} ('X') enter the position of your move (1-9): ");
-        spot = int.Parse(Console.ReadLine());
+        string input = Console.ReadLine();
         Console.WriteLine();
+        if (!int.TryParse(input, out spot) || spot < 1 || spot > 9)
+        {
+            Console.WriteLine("Invalid input. Please enter a number between 1 and 9.");
+            continue;
+        }
+
         if (gameBoard[spot - 1] == 'X' || gameBoard[spot - 1] == 'O')
         {
             Console.WriteLine("Invalid move. Please try again.");
@@ -47,8 +53,13 @@ do
     else if (player == 'O')
     {
         Console.WriteLine($"{player2} ('O') enter the position of your move (1-9): ");
-        spot = int.Parse(Console.ReadLine());
+        string input = Console.ReadLine();
         Console.WriteLine();
+        if (!int.TryParse(input, out spot) || spot < 1 || spot > 9)
+        {
+            Console.WriteLine("Invalid input. Please enter a number between 1 and 9.");
+            continue;
+        }
         if (gameBoard[spot - 1] == 'X' || gameBoard[spot - 1] == 'O')
         {
             Console.WriteLine("Invalid move. Please try again.");
