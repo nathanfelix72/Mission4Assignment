@@ -31,13 +31,13 @@ do
         Console.WriteLine();
         if (!int.TryParse(input, out spot) || spot < 1 || spot > 9)
         {
-            Console.WriteLine("Invalid input. Please enter a number between 1 and 9.");
+            Console.WriteLine("Invalid input. Please enter a number between 1 and 9.\n");
             continue;
         }
 
         if (gameBoard[spot - 1] == 'X' || gameBoard[spot - 1] == 'O')
         {
-            Console.WriteLine("Invalid move. Please try again.");
+            Console.WriteLine("That place is already taken. Please try again.");
             continue;
         }
         bt.UpdateBoard(gameBoard, (spot - 1), player);
@@ -57,12 +57,12 @@ do
         Console.WriteLine();
         if (!int.TryParse(input, out spot) || spot < 1 || spot > 9)
         {
-            Console.WriteLine("Invalid input. Please enter a number between 1 and 9.");
+            Console.WriteLine("Invalid input. Please enter a number between 1 and 9.\n");
             continue;
         }
         if (gameBoard[spot - 1] == 'X' || gameBoard[spot - 1] == 'O')
         {
-            Console.WriteLine("Invalid move. Please try again.");
+            Console.WriteLine("That place is already taken. Please try again.");
             continue;
         }
         bt.UpdateBoard(gameBoard, (spot - 1), player);
