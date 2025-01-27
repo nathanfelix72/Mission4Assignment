@@ -24,8 +24,8 @@ do
     do
     {
         bt.PrintBoard(gameBoard);
-        Console.WriteLine($"{player1} ('X') enter the position of your move: ");
-        bt.PrintBoard(gameBoard);
+        Console.WriteLine($"{player1} ('X') enter the position of your move (1-9): ");
+        bt.UpdateBoard(gameBoard, currentTurn, 'X');
         numturns++;
         
         // Changes turn
@@ -33,8 +33,8 @@ do
     } while (player1turn);
     
     bt.PrintBoard(gameBoard);
-    Console.WriteLine($"{player2} ('O') enter the position of your move: ");
-    bt.PrintBoard(gameBoard);
+    Console.WriteLine($"{player2} ('O') enter the position of your move (1-9): ");
+    bt.UpdateBoard(gameBoard, currentTurn, 'O');
     numturns++;
     
     // Changes turn
