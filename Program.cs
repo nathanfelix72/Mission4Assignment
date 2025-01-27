@@ -68,7 +68,7 @@ do
     
 } while (!gameOver && numturns < 9);
 
-if (numturns == 9)
+if (numturns == 9 && !gameOver)
 {
     Console.WriteLine("\nIt was a tie!");
 }
