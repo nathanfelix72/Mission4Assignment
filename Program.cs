@@ -9,7 +9,7 @@ int numturns = 0;
 int spot = 0;
 
 // Welcome the user to the game
-Console.WriteLine("Welcome to Tic-Tac-Toe!");
+Console.WriteLine("Welcome to Tic-Tac-Toe! \n");
 
 // Create the game board array
 char [] gameBoard = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
@@ -17,9 +17,11 @@ char [] gameBoard = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
 // User input
 Console.WriteLine("Enter player 1's name: ");
 player1 = Console.ReadLine();
-Console.WriteLine("Enter player 2's name: ");
+Console.WriteLine("\nEnter player 2's name: ");
 player2 = Console.ReadLine();
+Console.WriteLine("\n");
 bt.PrintBoard(gameBoard);
+
 do
 {
     if (player == 'X')
@@ -56,7 +58,7 @@ do
 
 if (!bt.CheckWin(gameBoard, player))
 {
-    Console.WriteLine("It was a tie!");
+    Console.WriteLine("\nIt was a tie!");
 }
 
 Console.WriteLine("Thank you for using our Tic-Tac-Toe Game!");
