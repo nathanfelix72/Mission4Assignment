@@ -3,10 +3,10 @@
 BoardTools bt = new BoardTools();
 string player1 = "";
 string player2 = "";
-bool player1turn = true;
+char player = 'X';
 bool gameOver = false;
 int numturns = 0;
-int currentTurn = 0;
+int spot = 0;
 
 // Welcome the user to the game
 Console.WriteLine("Welcome to Tic-Tac-Toe!");
@@ -19,31 +19,44 @@ Console.WriteLine("Enter player 1's name: ");
 player1 = Console.ReadLine();
 Console.WriteLine("Enter player 2's name: ");
 player2 = Console.ReadLine();
+bt.PrintBoard(gameBoard);
 do
 {
-    do
+    if (player == 'X')
     {
-        bt.PrintBoard(gameBoard);
         Console.WriteLine($"{player1} ('X') enter the position of your move (1-9): ");
-        bt.UpdateBoard(gameBoard, currentTurn, 'X');
+        spot = int.Parse(Console.ReadLine());
+        bt.UpdateBoard(gameBoard, (spot - 1), player);
         numturns++;
-        
+        if (bt.CheckWin(gameBoard, player))
+        {
+            Console.WriteLine($"{player1} ('X') wins the game !");
+            gameOver = true;
+        }
         // Changes turn
-        player1turn = false;
-    } while (player1turn);
-    
-    bt.PrintBoard(gameBoard);
-    Console.WriteLine($"{player2} ('O') enter the position of your move (1-9): ");
-    bt.UpdateBoard(gameBoard, currentTurn, 'O');
-    numturns++;
-    
-    // Changes turn
-    player1turn = true;
-
-    if (winner)
+        player = 'O';
+    } 
+    else if (player == 'O')
     {
-        gameOver = true;
+        Console.WriteLine($"{player2} ('O') enter the position of your move (1-9): ");
+        spot = int.Parse(Console.ReadLine());
+        bt.UpdateBoard(gameBoard, (spot - 1), player);
+        numturns++;
+
+        if (bt.CheckWin(gameBoard, player))
+        {
+            Console.WriteLine($"{player2} ('O') wins the game !");
+            gameOver = true;
+        }
+        // Changes turn
+        player = 'X';
     }
-} while (!gameOver && numturns <= 9);
+    
+} while (!gameOver && numturns < 9);
+
+if (!bt.CheckWin(gameBoard, player))
+{
+    Console.WriteLine("It was a tie!");
+}
 
 Console.WriteLine("Thank you for using our Tic-Tac-Toe Game!");
