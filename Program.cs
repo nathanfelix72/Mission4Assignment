@@ -1,5 +1,6 @@
 ﻿using Mission4Assignment;
 
+// initilize variables
 BoardTools bt = new BoardTools();
 string player1 = "";
 string player2 = "";
@@ -23,12 +24,14 @@ Console.WriteLine("\n");
 bt.PrintBoard(gameBoard);
 
 do
-{
+{   // Player 1's turn
     if (player == 'X')
     {
         Console.WriteLine($"{player1} ('X') enter the position of your move (1-9): ");
         string input = Console.ReadLine();
         Console.WriteLine();
+        
+        // Error handling
         if (!int.TryParse(input, out spot) || spot < 1 || spot > 9)
         {
             Console.WriteLine("Invalid input. Please enter a number between 1 and 9.");
@@ -42,6 +45,7 @@ do
         }
         bt.UpdateBoard(gameBoard, (spot - 1), player);
         numturns++;
+        // Checks for a win
         if (bt.CheckWin(gameBoard, player))
         {
             Console.WriteLine($"{player1} ('X') wins the game !");
@@ -50,11 +54,13 @@ do
         // Changes turn
         player = 'O';
     } 
+    // Player 2's turn
     else if (player == 'O')
     {
         Console.WriteLine($"{player2} ('O') enter the position of your move (1-9): ");
         string input = Console.ReadLine();
         Console.WriteLine();
+        // Error handling
         if (!int.TryParse(input, out spot) || spot < 1 || spot > 9)
         {
             Console.WriteLine("Invalid input. Please enter a number between 1 and 9.");
@@ -67,7 +73,7 @@ do
         }
         bt.UpdateBoard(gameBoard, (spot - 1), player);
         numturns++;
-
+        // Checks for a win
         if (bt.CheckWin(gameBoard, player))
         {
             Console.WriteLine($"{player2} ('O') wins the game !");
@@ -79,9 +85,11 @@ do
     
 } while (!gameOver && numturns < 9);
 
+// Checks for a tie
 if (numturns == 9 && !gameOver)
 {
     Console.WriteLine("\nIt was a tie!");
 }
 
+// End game!
 Console.WriteLine("Thank you for using our Tic-Tac-Toe Game!");
