@@ -12,7 +12,7 @@ int currentTurn = 0;
 Console.WriteLine("Welcome to Tic-Tac-Toe!");
 
 // Create the game board array
-char [,] gameBoard = {{'1', '2', '3'}, {'4', '5', '6'}, {'7', '8', '9'}};
+char [] gameBoard = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
 
 // User input
 Console.WriteLine("Enter player 1's name: ");
