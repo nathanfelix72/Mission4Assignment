@@ -8,7 +8,21 @@ namespace Mission4Assignment
 {
     internal class BoardTools
     {
-        public char[] PrintBoard(char[] board, int spot, char player)
+        public char[] PrintBoard(char[] board)
+        {
+            for (int i = 0; i < 9; i++)
+            {
+                Console.Write(board[i]);
+                if ((i + 1) % 3 == 0)
+                {
+                    Console.WriteLine();
+                }
+            }
+
+            return board;
+        }
+
+        public char[] UpdateBoard(char[] board, int spot, char player)
         {
             board[spot] = player;
 
