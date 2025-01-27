@@ -12,9 +12,10 @@ namespace Mission4Assignment
         {
             for (int i = 0; i < 9; i++)
             {
-                Console.Write(board[i]);
+                Console.Write(board[i] + " ");
                 if ((i + 1) % 3 == 0)
                 {
+                    Console.WriteLine();
                     Console.WriteLine();
                 }
             }
@@ -28,9 +29,10 @@ namespace Mission4Assignment
 
             for (int i = 0; i < 9; i++)
             {
-                Console.Write(board[i]);
+                Console.Write(board[i] + " ");
                 if ((i + 1) % 3 == 0)
                 {
+                    Console.WriteLine();
                     Console.WriteLine();
                 }
             }

@@ -26,6 +26,12 @@ do
     {
         Console.WriteLine($"{player1} ('X') enter the position of your move (1-9): ");
         spot = int.Parse(Console.ReadLine());
+        Console.WriteLine();
+        if (gameBoard[spot - 1] == 'X' || gameBoard[spot - 1] == 'O')
+        {
+            Console.WriteLine("Invalid move. Please try again.");
+            continue;
+        }
         bt.UpdateBoard(gameBoard, (spot - 1), player);
         numturns++;
         if (bt.CheckWin(gameBoard, player))
@@ -40,6 +46,12 @@ do
     {
         Console.WriteLine($"{player2} ('O') enter the position of your move (1-9): ");
         spot = int.Parse(Console.ReadLine());
+        Console.WriteLine();
+        if (gameBoard[spot - 1] == 'X' || gameBoard[spot - 1] == 'O')
+        {
+            Console.WriteLine("Invalid move. Please try again.");
+            continue;
+        }
         bt.UpdateBoard(gameBoard, (spot - 1), player);
         numturns++;
 
@@ -54,7 +66,7 @@ do
     
 } while (!gameOver && numturns < 9);
 
-if (!bt.CheckWin(gameBoard, player))
+if (numturns == 9)
 {
     Console.WriteLine("It was a tie!");
 }
